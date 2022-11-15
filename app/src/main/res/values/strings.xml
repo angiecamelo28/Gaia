@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Gaia</string>
+    <string name="txt_bar_consejos">Consejos</string>
+    <string name="txt_bar_notificaciones">Notificaciones</string>
+    <string name="txt_bar_perfil">Perfil</string>
+    <string name="txt_bar_huerta">Mi Huerta</string>
 </resources>
