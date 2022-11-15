@@ -4,4 +4,10 @@
     <string name="txt_bar_notificaciones">Notificaciones</string>
     <string name="txt_bar_perfil">Perfil</string>
     <string name="txt_bar_huerta">Mi Huerta</string>
+    <string name="tabla_tomate">Tomate</string>
+    <string name="tabla_espinaca">Espinaca</string>
+    <string name="tabla_sandia">Sandia</string>
+    <string name="tabla_zanahora">Zanahoria</string>
+    <string name="tabla_ajo">Ajo</string>
+    <string name="tabla_papa">Papa</string>
 </resources>
