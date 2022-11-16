@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/sugerenciaCultivo">
+
+    <fragment
+        android:id="@+id/sugerenciaCultivo"
+        android:name="com.example.gaia.controlador.SugerenciaCultivoFragment"
+        android:label="@string/tabla_tomate"
+        tools:layout="@layout/fragmento_sugerencia_cultivo"
+        />
+    <fragment
+        android:id="@+id/detalleCultivo"
+        android:name="com.example.gaia.controlador.DetalleCultivoFragment"
+        android:label="@string/tabla_tomate"
+        tools:layout="@layout/fragmento_detalle_cultivo"
+        />
+
+</navigation>
