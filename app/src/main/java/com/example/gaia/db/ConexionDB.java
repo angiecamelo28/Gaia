@@ -6,30 +6,28 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class ConexionDB extends SQLiteOpenHelper {
 
-    private static final String TABLA_HUERTA = "HUERTA";
-    private static final String DB_NOMBRE = "GaiaDB.db";
-    private static final int DB_VERSION = 1;
+    ConsultasSQL sql = new ConsultasSQL();
 
-    public ConexionDB(Context context) {
-        super(context, DB_NOMBRE, null, DB_VERSION);
+    public ConexionDB(Context context,String nombre, SQLiteDatabase.CursorFactory factory, int version) {
+        super(context, nombre, factory, version);
     }
 
     @Override
     public void onCreate(SQLiteDatabase database) {
-        database.execSQL("CREATE TABLE " +TABLA_HUERTA+ "("+
-                "ID INTEGER PRIMARY KEY AUTOINCREMENT,"+
-                "NOMBRE TEXT NOT NULL,"+
-                "AREA INTEGER NOT NULL,"+
-                "TEMPERATURA INTEGER NOT NULL,"+
-                "HUMEDAD INTEGER NOT NULL," +
-                "FECHAULTIMOABONO TEXT NOT NULL,"+
-                "PROPIETARIO TEXT NOT NULL,"+
-                "DESCRIPCION TEXT NOT NULL)");
+        database.execSQL(sql.TABLA_HUERTA);
+        database.execSQL(sql.TABLA_CULTIVO);
+        database.execSQL(sql.TABLA_CULTIVO_HUERTA);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase database, int versionAntes, int nuevaVersion) {
-        database.execSQL("DROP TABLE "+TABLA_HUERTA);
+        database.execSQL("DROP TABLE "+"HUERTA");
+        database.execSQL("DROP TABLE "+"CULTIVO");
+        database.execSQL("DROP TABLE "+"CULTIVO_HUERTA");
+        database.execSQL(sql.TABLA_HUERTA);
+        database.execSQL(sql.TABLA_CULTIVO);
+        database.execSQL(sql.TABLA_CULTIVO_HUERTA);
+
         onCreate(database);
     }
 }

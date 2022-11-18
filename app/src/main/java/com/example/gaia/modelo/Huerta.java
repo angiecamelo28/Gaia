@@ -5,20 +5,25 @@ import java.util.List;
 
 public class Huerta {
 
+    private int id;
     private String nombre;
-    private double area;
-    private double temperatura;
-    private double humedad;
-    private Date fechaUltimoAbono;
+    private String area;
+    private String temperatura;
+    private String humedad;
     private String propietario;
     private String descripcion;
-    private List<Cultivo> cultivos;
 
-    public Huerta(String nombre, double area, String propietario) {
+    public Huerta(String nombre, String area, String propietario) {
         this.nombre = nombre;
         this.area = area;
         this.propietario = propietario;
     }
+
+    public Huerta(){}
+
+    public int getId() {return id;}
+
+    public void setId(int id) {this.id = id;}
 
     public String getNombre() {
         return nombre;
@@ -28,36 +33,28 @@ public class Huerta {
         this.nombre = nombre;
     }
 
-    public double getArea() {
+    public String getArea() {
         return area;
     }
 
-    public void setArea(double area) {
+    public void setArea(String area) {
         this.area = area;
     }
 
-    public double getTemperatura() {
+    public String getTemperatura() {
         return temperatura;
     }
 
-    public void setTemperatura(double temperatura) {
+    public void setTemperatura(String temperatura) {
         this.temperatura = temperatura;
     }
 
-    public double getHumedad() {
+    public String getHumedad() {
         return humedad;
     }
 
-    public void setHumedad(double humedad) {
+    public void setHumedad(String humedad) {
         this.humedad = humedad;
-    }
-
-    public Date getFechaUltimoAbono() {
-        return fechaUltimoAbono;
-    }
-
-    public void setFechaUltimoAbono(Date fechaUltimoAbono) {
-        this.fechaUltimoAbono = fechaUltimoAbono;
     }
 
     public String getPropietario() {
@@ -76,11 +73,4 @@ public class Huerta {
         this.descripcion = descripcion;
     }
 
-    public List<Cultivo> getCultivos() {
-        return cultivos;
-    }
-
-    public void setCultivos(List<Cultivo> cultivos) {
-        this.cultivos = cultivos;
-    }
 }
