@@ -221,7 +221,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/btnSugerencia"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
                 android:text="Sugerencia de cultivos"

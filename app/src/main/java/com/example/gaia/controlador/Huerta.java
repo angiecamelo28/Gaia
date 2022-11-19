@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -22,6 +23,7 @@ public class Huerta extends AppCompatActivity {
     Spinner comboHuerta;
     ArrayList<String> listaHuertas;
     ArrayList<com.example.gaia.modelo.Huerta> huertasList;
+    Button siguiente;
 
 
     ConexionDB conexion;
@@ -34,6 +36,7 @@ public class Huerta extends AppCompatActivity {
         conexion = new ConexionDB(getApplicationContext(), "Gaia.db", null, 1);
 
         comboHuerta = (Spinner) findViewById(R.id.comboHuerta);
+        siguiente =  findViewById(R.id.btnSiguiente);
 
         consultarListaHuertas();
 
@@ -57,6 +60,14 @@ public class Huerta extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+
+        siguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intento = new Intent(getApplicationContext(), EstadoHuerta.class);
+                startActivity(intento);
             }
         });
 
