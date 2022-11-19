@@ -4,37 +4,108 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="#E8E8E8"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Bienvenido!!"
-        android:textAlignment="center"
-        android:layout_marginBottom="100px"
-        android:textSize="24sp"
-        android:typeface="sans"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/gaia_logo"
-        android:scaleType="centerInside" />
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/logo_sin_fondo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_horizontal|center_vertical"
+            android:layout_marginBottom="150px"
+            android:gravity="center"
+            android:paddingTop="70dp"
+            android:text="Iniciar sesión"
+            android:textAlignment="center"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:typeface="serif"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nombre"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:typeface="normal" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Ingrese su nombre"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Contraseña"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:typeface="normal" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:password="true"
+                android:text="Ingrese su contraseña"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <Button
-        android:id="@+id/btnIngresar"
+        android:id="@+id/btnAgregar"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="200px"
         android:paddingTop="20px"
         android:text="Ingresar"
+        app:icon="@drawable/ic_baseline_person_48"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="153dp"
         tools:layout_editor_absoluteY="256dp" />

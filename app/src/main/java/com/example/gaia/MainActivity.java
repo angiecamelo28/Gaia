@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btnIngresar = findViewById(R.id.btnIngresar);
+        btnIngresar = findViewById(R.id.btnAgregar);
         ConexionDB conexion = new ConexionDB(MainActivity.this,"Gaia.db",null,1);
 
         btnIngresar.setOnClickListener(new View.OnClickListener() {

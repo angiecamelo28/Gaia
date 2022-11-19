@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_alignParentLeft="false"
+    android:layout_centerInParent="true"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="false"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/esquinas_redondeadas"
+    android:foregroundGravity="center"
+    android:gravity="center"
+    android:orientation="horizontal"
+    app:layout_anchorGravity="center">
+
+    <ImageView
+        android:id="@+id/imagenCultivo"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:padding="8dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <LinearLayout
+        android:layout_width="260dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:foregroundGravity="center"
+            android:padding="8dp"
+            android:text="TextView"
+            android:textColor="#263D47"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtTipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="2dp"
+            android:text="TextView"
+            android:textColor="#263D47"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnDetalle"
+        android:layout_width="53dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="15dp"
+        app:icon="@drawable/icons8_informaci_n_emergente_32"
+        app:iconGravity="top"
+        app:iconSize="18dp" />
+
+
+</LinearLayout>
