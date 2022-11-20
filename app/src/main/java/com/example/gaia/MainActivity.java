@@ -9,12 +9,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.gaia.controlador.Huerta;
+import com.example.gaia.controlador.HuertaControlador;
 import com.example.gaia.db.ConexionDB;
 
 public class MainActivity extends AppCompatActivity {
 
     Button btnIngresar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +28,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 SQLiteDatabase db = conexion.getWritableDatabase();
-                Intent intento = new Intent(getApplicationContext(), Huerta.class);
+                Intent intento = new Intent(getApplicationContext(), HuertaControlador.class);
                 startActivity(intento);
             }
         });
+
+
 
     }
 

@@ -106,13 +106,14 @@
 
         </LinearLayout>
 
-        <ListView
-            android:id="@+id/listaCultivo"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaCultivos"
             android:layout_width="400dp"
             android:layout_height="462dp"
             android:layout_gravity="center"
             android:background="#D8C9B9"
-            android:foregroundGravity="center" />
+            android:foregroundGravity="center"/>
+
 
     </LinearLayout>
 

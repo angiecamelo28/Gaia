@@ -29,7 +29,8 @@ public class ConsultasSQL {
                     "FRECUENCIAFUMIGACION TEXT,"+
                     "DISTANCIASEMILLAS INTEGER,"+
                     "PLAGASENFERMEDADES TEXT,"+
-                    "PREVENCIONCUIDADOS TEXT)";
+                    "PREVENCIONCUIDADOS TEXT," +
+                    "IMAGEN TEXT)";
 
     public final String TABLA_CULTIVO_HUERTA=
             "CREATE TABLE CULTIVO_HUERTA("+

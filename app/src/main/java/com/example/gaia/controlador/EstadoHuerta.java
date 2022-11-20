@@ -23,7 +23,7 @@ public class EstadoHuerta extends AppCompatActivity {
         sugerencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intento = new Intent(getApplicationContext(), Cultivo.class);
+                Intent intento = new Intent(getApplicationContext(), SugerenciaCultivo.class);
                 startActivity(intento);
             }
         });

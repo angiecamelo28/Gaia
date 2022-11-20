@@ -18,6 +18,7 @@ public class Cultivo {
     private int distanciaSemillas;
     private String plagasEnfermedades;
     private String prevencionCuidados;
+    private int imagen;
 
     public Cultivo(int tiempoCosecha, String fechaSiembra, String estado, String tipoCultivo) {
         this.tiempoCosecha = tiempoCosecha;
@@ -26,11 +27,20 @@ public class Cultivo {
         this.tipoCultivo = tipoCultivo;
     }
     public Cultivo(){}
-    /*
-    public Cultivo sugerirTipoCultivo(int tiempo) {
 
-        return sugerirTipoCultivo(0);
-    }*/
+    public Cultivo(String nombre, int tiempoCosecha, int imagen) {
+        this.nombre = nombre;
+        this.tiempoCosecha = tiempoCosecha;
+        this.imagen=imagen;
+    }
+
+    public int getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(int imagen) {
+        this.imagen = imagen;
+    }
 
     public int getId() {
         return id;
