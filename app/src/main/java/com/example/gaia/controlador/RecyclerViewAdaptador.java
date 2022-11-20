@@ -71,6 +71,7 @@ public class RecyclerViewAdaptador extends RecyclerView.Adapter<RecyclerViewAdap
                 }
 
             }catch (NumberFormatException e){
+                cultivoLista.clear();
                 cultivoLista.addAll(listaOriginal);
             }
 
