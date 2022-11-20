@@ -6,11 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:foregroundTint="@color/md_theme_dark_secondaryContainer"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".controlador.SugerenciaCultivo">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="658dp"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
@@ -70,41 +71,16 @@
                 android:padding="15dp"
                 android:text="Por favor, selecciona el tipo de cultivo que desees." />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/txtSongName"
-                    android:layout_width="290dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginHorizontal="15dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_weight="1"
-                    android:hint="Filtrar por tiempo"
-                    android:textColor="@color/md_theme_dark_background"
-                    android:textColorHighlight="@color/md_theme_dark_background"
-                    android:textColorHint="@color/md_theme_dark_onSurfaceVariant"
-                    android:textSize="14sp" />
-
-                <Button
-                    android:id="@+id/btnSearch"
-                    android:layout_width="8dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/md_theme_dark_inversePrimary"
-                    app:icon="@drawable/icons8_b_squeda_50"
-                    app:iconGravity="top"
-                    app:iconSize="18dp" />
-
-            </LinearLayout>
-
         </LinearLayout>
+        <SearchView
+            android:id="@+id/txtBuscar"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginStart="10dp"
+            android:queryHint="Buscar"
+            android:background="@color/md_theme_light_onSecondary"
+            android:textSize="14sp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listaCultivos"
@@ -114,18 +90,19 @@
             android:background="#D8C9B9"
             android:foregroundGravity="center"/>
 
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:hideOnScroll="true"
+            app:menu="@menu/bottom_navigation_menu"
+            tools:ignore="MissingConstraints">
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     </LinearLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomAppBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:hideOnScroll="true"
-        app:menu="@menu/bottom_navigation_menu"
-        tools:ignore="MissingConstraints">
 
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </LinearLayout>
