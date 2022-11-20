@@ -13,6 +13,7 @@ import com.example.gaia.R;
 import com.example.gaia.db.ConexionDB;
 import com.example.gaia.modelo.Cultivo;
 import com.example.gaia.controlador.RecyclerViewAdaptador;
+import com.example.gaia.modelo.Huerta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,6 @@ public class SugerenciaCultivo extends AppCompatActivity {
     private RecyclerView recyclerViewCultivo;
     private RecyclerViewAdaptador adaptadorCultivo;
     ConexionDB conexion;
-    public List<Cultivo> cultivoLista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +34,6 @@ public class SugerenciaCultivo extends AppCompatActivity {
         recyclerViewCultivo = (RecyclerView) findViewById(R.id.listaCultivos);
         recyclerViewCultivo.setLayoutManager(new LinearLayoutManager(this));
 
-        //View itemsVista = (View) findViewById(R.layout.item_cultivo);
-
         adaptadorCultivo = new RecyclerViewAdaptador(obtenerCultivos());
         recyclerViewCultivo.setAdapter(adaptadorCultivo);
 
@@ -43,23 +41,27 @@ public class SugerenciaCultivo extends AppCompatActivity {
 
     public List<Cultivo> obtenerCultivos(){
         List<Cultivo> listacultivos = new ArrayList<>();
-
+        //listacultivos.add(new Cultivo("Hola",21,R.drawable.ajo));
+        //listacultivos.add(new Cultivo("Mundo",31,R.drawable.espinaca));
+        //return listacultivos;
         SQLiteDatabase db = conexion.getReadableDatabase();
-
-        Cultivo cultivo;
-        Cursor cursor = db.rawQuery("SELECT NOMBRE,TIEMPOCOSECHA,IMAGEN FROM CULTIVO", null);
-
+        Cursor cursor = db.rawQuery("SELECT NOMBRE,TIEMPOCOSECHA FROM CULTIVO", null);
+        Cultivo cultivo = null;
         if (cursor.moveToFirst()) {
             do {
-                cultivo = new Cultivo();
-                cultivo.setNombre(cursor.getString(0));
-                cultivo.setTiempoCosecha(cursor.getInt(1));
-                cultivo.setImagen(R.drawable.ajo);
+                /*cultivo = new Cultivo();
+                cultivo.setNombre(cursor.getString(0).toString());
+                cultivo.setTiempoCosecha(((int) cursor.getInt(1)));
+                cultivo.setImagen((int)R.drawable.ajo);*/
+                cultivo = new Cultivo(
+                        cursor.getString(0),
+                        cursor.getInt(1),
+                        R.drawable.ajo
+                );
 
                 listacultivos.add(cultivo);
             } while (cursor.moveToNext());
         }
         return listacultivos;
-
     }
 }

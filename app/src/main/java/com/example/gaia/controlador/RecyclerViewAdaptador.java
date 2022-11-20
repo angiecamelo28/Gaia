@@ -20,14 +20,16 @@ public class RecyclerViewAdaptador extends RecyclerView.Adapter<RecyclerViewAdap
 
         public ViewHolder(View itemView) {
             super(itemView);
-            nombre = (TextView) itemView.findViewById(R.id.txtNombre);
-            tiempo = (TextView) itemView.findViewById(R.id.txtTiempo);
-            imagen = (ImageView) itemView.findViewById(R.id.imagen);
+            nombre =  (TextView) itemView.findViewById(R.id.txtNombreItem);
+            tiempo = (TextView) itemView.findViewById(R.id.txtTiempoItem);
+            imagen = (ImageView) itemView.findViewById(R.id.imagenItem);
         }
     }
 
     public List<Cultivo> cultivoLista;
+
     public RecyclerViewAdaptador(List<Cultivo>cultivoLista){
+
         this.cultivoLista=cultivoLista;
     }
 
@@ -40,13 +42,15 @@ public class RecyclerViewAdaptador extends RecyclerView.Adapter<RecyclerViewAdap
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+
         holder.nombre.setText(cultivoLista.get(position).getNombre());
-        holder.tiempo.setText(cultivoLista.get(position).getTiempoCosecha());
+        //holder.tiempo.setText(cultivoLista.get(position).getTiempoCosecha());
         holder.imagen.setImageResource(cultivoLista.get(position).getImagen());
     }
 
     @Override
     public int getItemCount() {
+
         return cultivoLista.size();
     }
 }

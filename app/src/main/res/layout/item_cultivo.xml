@@ -17,7 +17,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imagen"
+                android:id="@+id/imagenItem"
                 android:layout_width="125dp"
                 android:layout_height="125dp"
                 android:layout_marginLeft="10dp"
@@ -35,7 +35,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtNombre"
+                    android:id="@+id/txtNombreItem"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
@@ -51,7 +51,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/txtTiempo"
+                    android:id="@+id/txtTiempoItem"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="TextView"
