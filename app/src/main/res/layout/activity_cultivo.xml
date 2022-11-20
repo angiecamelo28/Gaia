@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="658dp"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
@@ -108,7 +108,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:paddingStart="50dp"
@@ -116,7 +116,7 @@
 
                 <TextView
                     android:id="@+id/textView7"
-                    android:layout_width="40dp"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Tiempo de cosecha"
@@ -196,7 +196,7 @@
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="40dp"
-                    android:layout_height="38dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Prevención y Cuidados"
                     android:textSize="16sp"
@@ -210,33 +210,31 @@
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:text="TextView" />
+
+
             </LinearLayout>
 
             <Button
                 android:id="@+id/btnAgregar"
-                android:layout_width="150dp"
-                android:layout_height="match_parent"
-                android:layout_marginTop="200px"
-                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
                 android:text="Agregar cultivo"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="153dp"
-                tools:layout_editor_absoluteY="256dp" />
+                tools:ignore="MissingConstraints" />
 
         </LinearLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:hideOnScroll="true"
+            app:menu="@menu/bottom_navigation_menu"
+            tools:ignore="MissingConstraints">
 
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     </LinearLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomAppBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:hideOnScroll="true"
-        app:menu="@menu/bottom_navigation_menu"
-        tools:ignore="MissingConstraints">
-
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </LinearLayout>
