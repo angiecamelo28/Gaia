@@ -51,8 +51,9 @@ public class SugerenciaCultivo extends AppCompatActivity implements SearchView.O
         //listacultivos.add(new Cultivo("Mundo",31,R.drawable.espinaca));
         //return listacultivos;
         SQLiteDatabase db = conexion.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT NOMBRE,TIEMPOCOSECHA FROM CULTIVO", null);
+        Cursor cursor = db.rawQuery("SELECT NOMBRE,TIEMPOCOSECHA, IMAGEN FROM CULTIVO", null);
         Cultivo cultivo = null;
+
         if (cursor.moveToFirst()) {
             do {
                 /*cultivo = new Cultivo();
@@ -62,7 +63,8 @@ public class SugerenciaCultivo extends AppCompatActivity implements SearchView.O
                 cultivo = new Cultivo(
                         cursor.getString(0),
                         cursor.getInt(1),
-                        R.drawable.ajo
+                        cursor.getInt(2)
+
                 );
 
                 listacultivos.add(cultivo);

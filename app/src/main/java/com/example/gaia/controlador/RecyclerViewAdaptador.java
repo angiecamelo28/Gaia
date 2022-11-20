@@ -59,15 +59,15 @@ public class RecyclerViewAdaptador extends RecyclerView.Adapter<RecyclerViewAdap
         }else {
             try {
                 tiempoBusqueda= Integer.valueOf(txtBuscar);
-                List<Cultivo> collecion = cultivoLista.stream()
+                List<Cultivo> coleccion = cultivoLista.stream()
                         .filter(i -> i.getTiempoCosecha() <=tiempoBusqueda)
                         .collect(Collectors.toList());
 
-                if(collecion.isEmpty()){
+                if(coleccion.isEmpty()){
                     Toast.makeText(context, "No se encontraron coincidencias", Toast.LENGTH_SHORT).show();
                 }else {
                     cultivoLista.clear();
-                    cultivoLista.addAll(collecion);
+                    cultivoLista.addAll(coleccion);
                 }
 
             }catch (NumberFormatException e){
@@ -80,6 +80,7 @@ public class RecyclerViewAdaptador extends RecyclerView.Adapter<RecyclerViewAdap
     }
 
     public void reiniciarLista(){
+        cultivoLista.clear();
         cultivoLista.addAll(listaOriginal);
     }
 
