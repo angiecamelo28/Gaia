@@ -56,7 +56,8 @@ public class HuertaControlador extends AppCompatActivity {
                 }
             }
 
-
+            //Método que hace parte del adaptador del RecyclerView que garantiza que la aplicación no
+            //realice alguna función mientras no se tienen items seleccionados de la lista.
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 

@@ -30,11 +30,9 @@ public class Cultivo {
     public Cultivo(){}
 
     public Cultivo(String nombre, int tiempoCosecha, int imagen) {
-        //this.id=id;
         this.nombre = nombre;
         this.tiempoCosecha = tiempoCosecha;
         this.imagen=imagen;
-        //this.imagenPlanta=imagenPlanta;
     }
 
     public String getImagenPlanta() {

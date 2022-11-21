@@ -47,23 +47,12 @@ public class SugerenciaCultivo extends AppCompatActivity implements SearchView.O
 
     public List<Cultivo> obtenerCultivos() {
         List<Cultivo> listacultivos = new ArrayList<>();
-        //listacultivos.add(new Cultivo("Hola",21,R.drawable.ajo));
-        //listacultivos.add(new Cultivo("Mundo",31,R.drawable.espinaca));
-        //return listacultivos;
         SQLiteDatabase db = conexion.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT NOMBRE,TIEMPOCOSECHA, IMAGEN FROM CULTIVO", null);
         Cultivo cultivo = null;
 
-        System.out.println("linea 57");
-        System.out.println(R.drawable.lechuga);
-        System.out.println(R.drawable.pimientos);
-
         if (cursor.moveToFirst()) {
             do {
-                /*cultivo = new Cultivo();
-                cultivo.setNombre(cursor.getString(0).toString());
-                cultivo.setTiempoCosecha(((int) cursor.getInt(1)));
-                cultivo.setImagen((int)R.drawable.ajo);*/
                 cultivo = new Cultivo(
                         cursor.getString(0),
                         cursor.getInt(1),

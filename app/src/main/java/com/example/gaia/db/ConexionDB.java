@@ -21,9 +21,10 @@ public class ConexionDB extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase database, int versionAntes, int nuevaVersion) {
-        database.execSQL("DROP TABLE "+"HUERTA");
-        database.execSQL("DROP TABLE "+"CULTIVO");
-        database.execSQL("DROP TABLE "+"CULTIVO_HUERTA");
+        String borrarTabla = "DROP TABLE ";
+        database.execSQL(borrarTabla+"HUERTA");
+        database.execSQL(borrarTabla+"CULTIVO");
+        database.execSQL(borrarTabla+"CULTIVO_HUERTA");
         database.execSQL(sql.TABLA_HUERTA);
         database.execSQL(sql.TABLA_CULTIVO);
         database.execSQL(sql.TABLA_CULTIVO_HUERTA);

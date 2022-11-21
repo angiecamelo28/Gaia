@@ -2,7 +2,7 @@ package com.example.gaia.db;
 
 public class ConsultasSQL {
 
-    public static final String TABLA_HUERTA =
+    public final String TABLA_HUERTA =
             "CREATE TABLE HUERTA("+
                     "ID INTEGER PRIMARY KEY AUTOINCREMENT,"+
                     "NOMBRE TEXT NOT NULL,"+
