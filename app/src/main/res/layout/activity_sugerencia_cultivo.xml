@@ -50,9 +50,9 @@
                     android:id="@+id/imageView3"
                     android:layout_width="80dp"
                     android:layout_height="30dp"
-                    android:layout_gravity="right|center_vertical"
+                    android:layout_gravity="right|center_horizontal"
                     android:layout_weight="1"
-                    android:paddingStart="110dp"
+                    android:paddingStart="80dp"
                     app:srcCompat="@drawable/pregunta" />
 
                 <TextView
@@ -69,7 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="15dp"
-                android:text="Por favor, selecciona el tipo de cultivo que desees." />
+                android:text="Por favor, ingrese el número de días en que desea su cosecha." />
 
         </LinearLayout>
         <SearchView

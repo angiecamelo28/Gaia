@@ -54,6 +54,10 @@ public class SugerenciaCultivo extends AppCompatActivity implements SearchView.O
         Cursor cursor = db.rawQuery("SELECT NOMBRE,TIEMPOCOSECHA, IMAGEN FROM CULTIVO", null);
         Cultivo cultivo = null;
 
+        System.out.println("linea 57");
+        System.out.println(R.drawable.lechuga);
+        System.out.println(R.drawable.pimientos);
+
         if (cursor.moveToFirst()) {
             do {
                 /*cultivo = new Cultivo();
