@@ -238,8 +238,8 @@
                 android:id="@+id/button5"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
-                android:text="Calculadora de fertilizante"
-                app:icon="@drawable/icons8_calculadora_24" />
+                android:text="Ver informe"
+                app:icon="@drawable/icons8_informe_gr_fico_64__1_" />
 
         </LinearLayout>
         <com.google.android.material.bottomnavigation.BottomNavigationView

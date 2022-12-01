@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -14,20 +15,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/imagenItem"
-                android:layout_width="125dp"
-                android:layout_height="125dp"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
+                android:foregroundGravity="center"
                 app:srcCompat="@drawable/espinaca" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
@@ -41,23 +44,61 @@
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
                     android:text="TextView"
-                    android:textSize="26dp" />
+                    android:textSize="24dp" />
 
-                <TextView
-                    android:id="@+id/textView10"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Días de cosecha:"
-                    android:textSize="16sp" />
+                    android:layout_height="30dp"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/txtTiempoItem"
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:text="Días de cosecha:"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/txtTiempoItem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    android:textSize="16sp" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:text="Temperatura ideal:"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/txtTemperaturaItem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
 
             </LinearLayout>
+
+            <Button
+                android:id="@+id/btnDetalleCultivo"
+                android:layout_width="60dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:gravity="center|center_vertical"
+                app:icon="@drawable/icons8_informaci_n_emergente_32"
+                app:iconGravity="top"
+                app:iconSize="18dp"
+                tools:ignore="SpeakableTextPresentCheck" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

@@ -72,23 +72,41 @@
                 android:text="Por favor, ingrese el número de días en que desea su cosecha." />
 
         </LinearLayout>
-        <SearchView
-            android:id="@+id/txtBuscar"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginStart="10dp"
-            android:queryHint="Buscar"
-            android:background="@color/md_theme_light_onSecondary"
-            android:textSize="14sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <Spinner
+                android:id="@+id/comboVariable"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:minHeight="48dp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <SearchView
+                android:id="@+id/txtBuscar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginStart="200dp"
+                android:background="@color/md_theme_light_onSecondary"
+                android:queryHint="Buscar"
+                android:textSize="14sp">
+
+            </SearchView>
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listaCultivos"
             android:layout_width="400dp"
-            android:layout_height="462dp"
+            android:layout_height="435dp"
             android:layout_gravity="center"
             android:background="#D8C9B9"
-            android:foregroundGravity="center"/>
+            android:foregroundGravity="center" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomAppBar"
