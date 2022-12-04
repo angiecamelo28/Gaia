@@ -40,7 +40,6 @@ public class HuertaControlador extends AppCompatActivity {
 
         consultarListaHuertas();
 
-
         ArrayAdapter<CharSequence> adaptador = new ArrayAdapter
                 (this, android.R.layout.simple_spinner_item, listaHuertas);
 
@@ -80,8 +79,6 @@ public class HuertaControlador extends AppCompatActivity {
         Huerta huerta = null;
         huertasList = new ArrayList<Huerta>();
         Cursor cursor = db.rawQuery("SELECT * FROM HUERTA", null);
-        System.out.println("home 59");
-        System.out.println(cursor.moveToNext());
 
         if (cursor.moveToFirst()) {
             do {

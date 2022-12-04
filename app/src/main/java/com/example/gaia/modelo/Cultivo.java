@@ -29,9 +29,10 @@ public class Cultivo {
     }
     public Cultivo(){}
 
-    public Cultivo(String nombre, int tiempoCosecha, int imagen) {
+    public Cultivo(String nombre, int tiempoCosecha, double temperatura, int imagen) {
         this.nombre = nombre;
         this.tiempoCosecha = tiempoCosecha;
+        this.temperatura = temperatura;
         this.imagen=imagen;
     }
 
