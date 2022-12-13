@@ -40,13 +40,6 @@ public class HuertaControlador extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_huerta);
 
-        //BottomAppBar bottomAppBar = (BottomAppBar) findViewById(R.id.bottomAppBar);
-//        setSupportActionBar(bottomAppBar);
-
-        //BottomNavigationItemView navigation = findViewById(R.id.bottomAppBar);
-        //navigation.setOnNavigationItemSelectedListener(mOnNavigationIemSelectedListener);
-
-
         conexion = new ConexionDB(getApplicationContext(), "Gaia.db", null, 1);
 
         comboHuerta = (Spinner) findViewById(R.id.comboHuerta);
@@ -54,9 +47,7 @@ public class HuertaControlador extends AppCompatActivity {
 
         consultarListaHuertas();
 
-//        bottomAppBar.setNavigationOnClickListener {
-//            drawerLayout.openDrawer(GravityCompat.START)
-//        }
+
         ArrayAdapter<CharSequence> adaptador = new ArrayAdapter
                 (this, android.R.layout.simple_spinner_item, listaHuertas);
 
@@ -71,7 +62,6 @@ public class HuertaControlador extends AppCompatActivity {
                     //huertaSeleccionada=parent.getItemAtPosition(position).toString();
                     //System.out.println("------esta es la que se eligio "+huertaSeleccionada);
                 }
-
             }
 
             //Método que hace parte del adaptador del RecyclerView que garantiza que la aplicación no
@@ -91,14 +81,8 @@ public class HuertaControlador extends AppCompatActivity {
         });
 
     }
-/**
-    private final BottomNavigationView.OnNavigationItemReselectedListener mOnNavigationIemSelectedListener = new BottomNavigationView.OnNavigationItemReselectedListener(){
 
-        @Override
-        public void onNavigationItemReselected(@NonNull MenuItem item) {
 
-        }
-    }*/
 
     /**
      * Método para obtener los datos de la huerta almacenados en la base de datos
@@ -109,7 +93,6 @@ public class HuertaControlador extends AppCompatActivity {
         Huerta huerta = null;
         huertasList = new ArrayList<Huerta>();
         Cursor cursor = db.rawQuery("SELECT * FROM HUERTA", null);
-        System.out.println(cursor.moveToNext());
 
         if (cursor.moveToFirst()) {
             do {

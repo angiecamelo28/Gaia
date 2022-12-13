@@ -3,6 +3,7 @@ package com.example.gaia.controlador;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +18,7 @@ public class CultivoControlador extends AppCompatActivity {
     TextView txtTemperatura;
     TextView txtHumedad;
     TextView txtCiudados;
+
 
     ConexionDB conexion;
 

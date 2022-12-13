@@ -30,6 +30,7 @@ public class CultivoModelo {
     public CultivoModelo(String nombre, int tiempoCosecha, int imagen) {
         this.nombre = nombre;
         this.tiempoCosecha = tiempoCosecha;
+        this.temperatura = temperatura;
         this.imagen=imagen;
     }
 

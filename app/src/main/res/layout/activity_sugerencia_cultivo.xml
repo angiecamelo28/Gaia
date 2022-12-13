@@ -79,25 +79,22 @@
             android:orientation="horizontal"
             android:padding="4dp">
 
-            <Spinner
-                android:id="@+id/comboVariable"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:minHeight="48dp"
-                tools:ignore="SpeakableTextPresentCheck" />
-
             <SearchView
                 android:id="@+id/txtBuscar"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="15dp"
-                android:layout_marginStart="200dp"
                 android:background="@color/md_theme_light_onSecondary"
                 android:queryHint="Buscar"
                 android:textSize="14sp">
 
             </SearchView>
+            <Spinner
+                android:id="@+id/comboVariable"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:minHeight="48dp"
+                tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView

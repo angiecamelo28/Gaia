@@ -22,13 +22,14 @@ public class RecyclerSugerenciaCultivo extends RecyclerView.Adapter<RecyclerSuge
     public List<CultivoModelo> listaOriginal;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView nombre, tiempo;
+        private TextView nombre, tiempo, temperatura;
         ImageView imagen;
 
         public ViewHolder(View itemView) {
             super(itemView);
             nombre = (TextView) itemView.findViewById(R.id.txtNombreItem);
             tiempo = (TextView) itemView.findViewById(R.id.txtTiempoItem);
+            temperatura = (TextView) itemView.findViewById(R.id.txtTemperaturaItem);
             imagen = (ImageView) itemView.findViewById(R.id.imagenItem);
         }
     }
@@ -49,10 +50,11 @@ public class RecyclerSugerenciaCultivo extends RecyclerView.Adapter<RecyclerSuge
         return viewHolder;
     }
 
-    public void filtrar(String txtBuscar, Context context) {
+    public void filtrarTiempo(String txtBuscar, Context context) {
+        cultivoLista.clear();
+        cultivoLista.addAll(listaOriginal);
         int longitud = txtBuscar.length();
         int tiempoBusqueda;
-
         if (longitud == 0) {
             cultivoLista.clear();
             cultivoLista.addAll(listaOriginal);
@@ -80,12 +82,60 @@ public class RecyclerSugerenciaCultivo extends RecyclerView.Adapter<RecyclerSuge
                 Toast.makeText(context, "Se debe ingresar valores numéricos ", Toast.LENGTH_SHORT).show();
                 cultivoLista.clear();
                 cultivoLista.addAll(listaOriginal);
+
             }
 
         }
 
         notifyDataSetChanged();
     }
+
+    public void filtrarTemperatura(String txtBuscar, Context context) {
+        cultivoLista.clear();
+        cultivoLista.addAll(listaOriginal);
+        System.out.println("linea 94");
+        System.out.println(txtBuscar);
+        if(txtBuscar.contains(",")){
+            txtBuscar=txtBuscar.replace(",",".");
+            System.out.println(txtBuscar);
+        }
+        int longitud = txtBuscar.length();
+        double temperaturaBusqueda;
+
+        if (longitud == 0) {
+            cultivoLista.clear();
+            cultivoLista.addAll(listaOriginal);
+        } else {
+            try {
+                temperaturaBusqueda = Double.valueOf(txtBuscar);
+                if (temperaturaBusqueda <= 0) {
+                    Toast.makeText(context, "Se debe ingresar un valor mayor a cero", Toast.LENGTH_SHORT).show();
+                } else {
+                    List<Cultivo> coleccion = cultivoLista.stream()
+                            .filter(i -> i.getTemperatura() <= temperaturaBusqueda)
+                            .collect(Collectors.toList());
+
+                    if (coleccion.isEmpty()) {
+                        Toast.makeText(context, "No se encontraron coincidencias", Toast.LENGTH_SHORT).show();
+                        cultivoLista.clear();
+                        cultivoLista.addAll(coleccion);
+                    } else {
+                        cultivoLista.clear();
+                        cultivoLista.addAll(coleccion);
+                    }
+                }
+
+            } catch (NumberFormatException e) {
+                Toast.makeText(context, "Se debe ingresar valores numéricos ", Toast.LENGTH_SHORT).show();
+                cultivoLista.clear();
+                cultivoLista.addAll(listaOriginal);
+            }
+
+        }
+
+        notifyDataSetChanged();
+    }
+
 
     public void reiniciarLista() {
         cultivoLista.clear();
@@ -97,6 +147,7 @@ public class RecyclerSugerenciaCultivo extends RecyclerView.Adapter<RecyclerSuge
 
         holder.nombre.setText(cultivoLista.get(position).getNombre());
         holder.tiempo.setText(cultivoLista.get(position).getTiempoCosecha() + "");
+        holder.temperatura.setText(cultivoLista.get(position).getTemperatura() + "");
         holder.imagen.setImageResource(cultivoLista.get(position).getImagen());
     }
 
