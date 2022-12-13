@@ -3,26 +3,20 @@ package com.example.gaia.controlador;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.SearchView;
-
 import com.example.gaia.R;
 import com.example.gaia.db.ConexionDB;
-import com.example.gaia.modelo.Cultivo;
-import com.example.gaia.controlador.RecyclerViewAdaptador;
-import com.example.gaia.modelo.Huerta;
-
+import com.example.gaia.modelo.CultivoModelo;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SugerenciaCultivo extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     private RecyclerView recyclerViewCultivo;
-    private RecyclerViewAdaptador adaptadorCultivo;
+    private RecyclerSugerenciaCultivo adaptadorCultivo;
     ConexionDB conexion;
     SearchView txtBuscar;
 
@@ -38,22 +32,22 @@ public class SugerenciaCultivo extends AppCompatActivity implements SearchView.O
         recyclerViewCultivo = (RecyclerView) findViewById(R.id.listaCultivos);
         recyclerViewCultivo.setLayoutManager(new LinearLayoutManager(this));
 
-        adaptadorCultivo = new RecyclerViewAdaptador(obtenerCultivos());
+        adaptadorCultivo = new RecyclerSugerenciaCultivo(obtenerCultivos());
         recyclerViewCultivo.setAdapter(adaptadorCultivo);
 
         txtBuscar.setOnQueryTextListener(this);
 
     }
 
-    public List<Cultivo> obtenerCultivos() {
-        List<Cultivo> listacultivos = new ArrayList<>();
+    public List<CultivoModelo> obtenerCultivos() {
+        List<CultivoModelo> listacultivos = new ArrayList<>();
         SQLiteDatabase db = conexion.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT NOMBRE,TIEMPOCOSECHA, IMAGEN FROM CULTIVO", null);
-        Cultivo cultivo = null;
+        CultivoModelo cultivo = null;
 
         if (cursor.moveToFirst()) {
             do {
-                cultivo = new Cultivo(
+                cultivo = new CultivoModelo(
                         cursor.getString(0),
                         cursor.getInt(1),
                         cursor.getInt(2)

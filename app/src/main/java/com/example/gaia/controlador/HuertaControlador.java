@@ -1,11 +1,13 @@
 package com.example.gaia.controlador;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,6 +17,9 @@ import android.widget.Spinner;
 import com.example.gaia.R;
 import com.example.gaia.db.ConexionDB;
 import com.example.gaia.modelo.Huerta;
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
@@ -25,6 +30,8 @@ public class HuertaControlador extends AppCompatActivity {
     ArrayList<Huerta> huertasList;
     Button siguiente;
 
+    public String huertaSeleccionada;
+
 
     ConexionDB conexion;
 
@@ -33,6 +40,13 @@ public class HuertaControlador extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_huerta);
 
+        //BottomAppBar bottomAppBar = (BottomAppBar) findViewById(R.id.bottomAppBar);
+//        setSupportActionBar(bottomAppBar);
+
+        //BottomNavigationItemView navigation = findViewById(R.id.bottomAppBar);
+        //navigation.setOnNavigationItemSelectedListener(mOnNavigationIemSelectedListener);
+
+
         conexion = new ConexionDB(getApplicationContext(), "Gaia.db", null, 1);
 
         comboHuerta = (Spinner) findViewById(R.id.comboHuerta);
@@ -40,7 +54,9 @@ public class HuertaControlador extends AppCompatActivity {
 
         consultarListaHuertas();
 
-
+//        bottomAppBar.setNavigationOnClickListener {
+//            drawerLayout.openDrawer(GravityCompat.START)
+//        }
         ArrayAdapter<CharSequence> adaptador = new ArrayAdapter
                 (this, android.R.layout.simple_spinner_item, listaHuertas);
 
@@ -50,10 +66,12 @@ public class HuertaControlador extends AppCompatActivity {
             @Override
             public void onItemSelected(
                     AdapterView<?> parent, View view, int position, long id) {
-                if (position == 2) {
-                    Intent intento = new Intent(getApplicationContext(), SugerenciaCultivo.class);
-                    startActivity(intento);
+                if(position>0){
+                    setHuertaSeleccionada(parent.getItemAtPosition(position).toString());
+                    //huertaSeleccionada=parent.getItemAtPosition(position).toString();
+                    //System.out.println("------esta es la que se eligio "+huertaSeleccionada);
                 }
+
             }
 
             //Método que hace parte del adaptador del RecyclerView que garantiza que la aplicación no
@@ -73,14 +91,24 @@ public class HuertaControlador extends AppCompatActivity {
         });
 
     }
+/**
+    private final BottomNavigationView.OnNavigationItemReselectedListener mOnNavigationIemSelectedListener = new BottomNavigationView.OnNavigationItemReselectedListener(){
 
+        @Override
+        public void onNavigationItemReselected(@NonNull MenuItem item) {
+
+        }
+    }*/
+
+    /**
+     * Método para obtener los datos de la huerta almacenados en la base de datos
+     */
     private void consultarListaHuertas() {
         SQLiteDatabase db = conexion.getReadableDatabase();
 
         Huerta huerta = null;
         huertasList = new ArrayList<Huerta>();
         Cursor cursor = db.rawQuery("SELECT * FROM HUERTA", null);
-        System.out.println("home 59");
         System.out.println(cursor.moveToNext());
 
         if (cursor.moveToFirst()) {
@@ -100,6 +128,9 @@ public class HuertaControlador extends AppCompatActivity {
         obtenerLista();
     }
 
+    /**
+     * Método para almacenar cada uno de los datos de la huerta en una lista
+     */
     private void obtenerLista() {
         listaHuertas = new ArrayList<String>();
         listaHuertas.add("Seleccione");
@@ -108,4 +139,37 @@ public class HuertaControlador extends AppCompatActivity {
         }
     }
 
+    public String getHuertaSeleccionada() {
+        //System.out.println("-------esta es la que debe salir "+huertaSeleccionada);
+        return huertaSeleccionada;
+    }
+
+    public void setHuertaSeleccionada(String huertaSeleccionada) {
+        this.huertaSeleccionada = huertaSeleccionada;
+    }
+
+/**
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.huerta:
+
+                return true;
+            case R.id.consejos:
+
+                return true;
+
+            case R.id.notificaciones:
+                Intent intento = new Intent(getApplicationContext(), NotificacionControlador.class);
+                startActivity(intento);
+                return true;
+
+            case R.id.perfil:
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }*/
 }

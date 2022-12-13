@@ -17,6 +17,7 @@ public class ConexionDB extends SQLiteOpenHelper {
         database.execSQL(sql.TABLA_HUERTA);
         database.execSQL(sql.TABLA_CULTIVO);
         database.execSQL(sql.TABLA_CULTIVO_HUERTA);
+        database.execSQL(sql.TABLA_HISTORIAL_NOTIFICACIONES);
     }
 
     @Override
@@ -25,10 +26,11 @@ public class ConexionDB extends SQLiteOpenHelper {
         database.execSQL(borrarTabla+"HUERTA");
         database.execSQL(borrarTabla+"CULTIVO");
         database.execSQL(borrarTabla+"CULTIVO_HUERTA");
+        database.execSQL(borrarTabla+"HISTORIAL_NOTIFICACIONES");
         database.execSQL(sql.TABLA_HUERTA);
         database.execSQL(sql.TABLA_CULTIVO);
         database.execSQL(sql.TABLA_CULTIVO_HUERTA);
-
+        database.execSQL(sql.TABLA_HISTORIAL_NOTIFICACIONES);
         onCreate(database);
     }
 }
