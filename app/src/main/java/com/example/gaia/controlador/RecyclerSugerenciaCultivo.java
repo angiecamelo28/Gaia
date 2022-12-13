@@ -93,11 +93,8 @@ public class RecyclerSugerenciaCultivo extends RecyclerView.Adapter<RecyclerSuge
     public void filtrarTemperatura(String txtBuscar, Context context) {
         cultivoLista.clear();
         cultivoLista.addAll(listaOriginal);
-        System.out.println("linea 94");
-        System.out.println(txtBuscar);
         if(txtBuscar.contains(",")){
             txtBuscar=txtBuscar.replace(",",".");
-            System.out.println(txtBuscar);
         }
         int longitud = txtBuscar.length();
         double temperaturaBusqueda;
@@ -111,7 +108,7 @@ public class RecyclerSugerenciaCultivo extends RecyclerView.Adapter<RecyclerSuge
                 if (temperaturaBusqueda <= 0) {
                     Toast.makeText(context, "Se debe ingresar un valor mayor a cero", Toast.LENGTH_SHORT).show();
                 } else {
-                    List<Cultivo> coleccion = cultivoLista.stream()
+                    List<CultivoModelo> coleccion = cultivoLista.stream()
                             .filter(i -> i.getTemperatura() <= temperaturaBusqueda)
                             .collect(Collectors.toList());
 

@@ -60,16 +60,6 @@ public class Notificacion {
         builder.setDefaults(Notification.DEFAULT_VIBRATE);
         builder.setDefaults(Notification.DEFAULT_SOUND);
 
-
-        //db.execSQL("INSERT INTO HISTORIAL_NOTIFICACIONES VALUES (1, '31/03/2022', 'DEMOXXXXX', '---ESTE ES UN EJEMPLO')",null);
-        //db.insert("HISTORIAL_NOTIFICACIONES",null,(fecha,titulo,mensaje));
-        //db.rawQuery("INSERT INTO HISTORIAL_NOTIFICACIONES VALUES (1, '31/03/2022', 'DEMOXXXXX', '---ESTE ES UN EJEMPLO')",null);
-        /**if (db != null){
-            values.put("FECHA", fecha);
-            values.put("TITULO", titulo);
-            values.put("CONTENIDO", mensaje );
-            db.insert("HISTORIAL_NOTIFICACIONES",null,values);
-        }**/
         long id = insertarNotificacion(titulo,mensaje,context);
         if(id>0){
             Toast.makeText(context.getApplicationContext(), "Registro gusrdado", Toast.LENGTH_LONG).show();
